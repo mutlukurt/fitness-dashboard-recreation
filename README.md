@@ -6,15 +6,15 @@ A comprehensive, modern fitness tracking dashboard built with React, TypeScript,
 
 ## 📱 Screenshots
 
-### Desktop Version
-| Dashboard | Home Page |
-|-----------|-----------|
-| ![Desktop Dashboard](https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80) | ![Desktop Home](https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80) |
+### Desktop
+| Screenshot 1 | Screenshot 2 |
+|--------------|--------------|
+| ![Desktop 1](./src/assets/1.png) | ![Desktop 2](./src/assets/2.png) |
 
 ### Mobile Version
-| Home | Dashboard | Reports | Calendar | Settings |
-|------|-----------|---------|----------|----------|
-| ![Mobile Home](https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80) | ![Mobile Dashboard](https://images.unsplash.com/photo-1434494878577-86c23bcb06b9?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80) | ![Mobile Reports](https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80) | ![Mobile Calendar](https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80) | ![Mobile Settings](https://images.unsplash.com/photo-1551698618-1dfe5d97d256?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80) |
+| Screenshot 3 | Screenshot 4 | Screenshot 5 |
+|--------------|--------------|--------------|
+| ![Mobile 3](./src/assets/3.png) | ![Mobile 4](./src/assets/4.png) | ![Mobile 5](./src/assets/5.png) |
 
 ## ✨ Features
 
