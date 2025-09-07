@@ -54,27 +54,27 @@ export default function Settings() {
   };
 
   const renderProfileTab = () => (
-    <div className="space-y-6">
-      <div className="flex items-center space-x-6">
-        <div className="w-24 h-24 bg-gradient-to-br from-purple-400 to-pink-400 rounded-full flex items-center justify-center">
-          <span className="text-white font-bold text-2xl">JS</span>
+    <div className="space-y-4 lg:space-y-6">
+      <div className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-6">
+        <div className="w-20 h-20 lg:w-24 lg:h-24 bg-gradient-to-br from-purple-400 to-pink-400 rounded-full flex items-center justify-center">
+          <span className="text-white font-bold text-xl lg:text-2xl">JS</span>
         </div>
-        <div>
-          <button className="bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition-colors">
+        <div className="text-center sm:text-left">
+          <button className="bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition-colors text-sm">
             Change Photo
           </button>
-          <p className="text-sm text-gray-500 mt-1">JPG, PNG or GIF. Max size 2MB</p>
+          <p className="text-xs lg:text-sm text-gray-500 mt-1">JPG, PNG or GIF. Max size 2MB</p>
         </div>
       </div>
 
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6">
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-2">First Name</label>
           <input
             type="text"
             value={settings.firstName}
             onChange={(e) => updateSetting('firstName', e.target.value)}
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-sm"
           />
         </div>
         <div>
@@ -83,7 +83,7 @@ export default function Settings() {
             type="text"
             value={settings.lastName}
             onChange={(e) => updateSetting('lastName', e.target.value)}
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-sm"
           />
         </div>
       </div>
@@ -94,7 +94,7 @@ export default function Settings() {
           type="email"
           value={settings.email}
           onChange={(e) => updateSetting('email', e.target.value)}
-          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-sm"
         />
       </div>
 
@@ -104,7 +104,7 @@ export default function Settings() {
           type="tel"
           value={settings.phone}
           onChange={(e) => updateSetting('phone', e.target.value)}
-          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-sm"
         />
       </div>
 
@@ -114,7 +114,7 @@ export default function Settings() {
           value={settings.bio}
           onChange={(e) => updateSetting('bio', e.target.value)}
           rows={3}
-          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-sm"
         />
       </div>
 
@@ -124,14 +124,14 @@ export default function Settings() {
           <input
             type={showPassword ? 'text' : 'password'}
             placeholder="••••••••"
-            className="w-full px-3 py-2 pr-10 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+            className="w-full px-3 py-2 pr-10 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-sm"
           />
           <button
             type="button"
             onClick={() => setShowPassword(!showPassword)}
             className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
           >
-            {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+            {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
           </button>
         </div>
       </div>
@@ -139,19 +139,19 @@ export default function Settings() {
   );
 
   const renderNotificationsTab = () => (
-    <div className="space-y-6">
+    <div className="space-y-4 lg:space-y-6">
       <div className="space-y-4">
-        <h3 className="text-lg font-semibold text-gray-900">Push Notifications</h3>
+        <h3 className="text-base lg:text-lg font-semibold text-gray-900">Push Notifications</h3>
         {[
           { key: 'pushNotifications', label: 'Enable push notifications', description: 'Receive notifications on your device' },
           { key: 'workoutReminders', label: 'Workout reminders', description: 'Get reminded about scheduled workouts' },
           { key: 'goalAchievements', label: 'Goal achievements', description: 'Celebrate when you reach your goals' },
           { key: 'friendActivity', label: 'Friend activity', description: 'See when friends complete workouts' }
         ].map((item) => (
-          <div key={item.key} className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+          <div key={item.key} className="flex items-center justify-between p-3 lg:p-4 bg-gray-50 rounded-lg">
             <div>
-              <div className="font-medium text-gray-900">{item.label}</div>
-              <div className="text-sm text-gray-500">{item.description}</div>
+              <div className="font-medium text-gray-900 text-sm lg:text-base">{item.label}</div>
+              <div className="text-xs lg:text-sm text-gray-500">{item.description}</div>
             </div>
             <label className="relative inline-flex items-center cursor-pointer">
               <input
@@ -160,18 +160,18 @@ export default function Settings() {
                 onChange={(e) => updateSetting(item.key, e.target.checked)}
                 className="sr-only peer"
               />
-              <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-purple-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-purple-600"></div>
+              <div className="w-10 h-5 lg:w-11 lg:h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-purple-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 lg:after:h-5 lg:after:w-5 after:transition-all peer-checked:bg-purple-600"></div>
             </label>
           </div>
         ))}
       </div>
 
       <div className="space-y-4">
-        <h3 className="text-lg font-semibold text-gray-900">Email Notifications</h3>
-        <div className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+        <h3 className="text-base lg:text-lg font-semibold text-gray-900">Email Notifications</h3>
+        <div className="flex items-center justify-between p-3 lg:p-4 bg-gray-50 rounded-lg">
           <div>
-            <div className="font-medium text-gray-900">Email notifications</div>
-            <div className="text-sm text-gray-500">Receive weekly progress reports via email</div>
+            <div className="font-medium text-gray-900 text-sm lg:text-base">Email notifications</div>
+            <div className="text-xs lg:text-sm text-gray-500">Receive weekly progress reports via email</div>
           </div>
           <label className="relative inline-flex items-center cursor-pointer">
             <input
@@ -180,7 +180,7 @@ export default function Settings() {
               onChange={(e) => updateSetting('emailNotifications', e.target.checked)}
               className="sr-only peer"
             />
-            <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-purple-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-purple-600"></div>
+            <div className="w-10 h-5 lg:w-11 lg:h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-purple-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 lg:after:h-5 lg:after:w-5 after:transition-all peer-checked:bg-purple-600"></div>
           </label>
         </div>
       </div>
@@ -188,13 +188,13 @@ export default function Settings() {
   );
 
   const renderPrivacyTab = () => (
-    <div className="space-y-6">
+    <div className="space-y-4 lg:space-y-6">
       <div>
         <label className="block text-sm font-medium text-gray-700 mb-2">Profile Visibility</label>
         <select
           value={settings.profileVisibility}
           onChange={(e) => updateSetting('profileVisibility', e.target.value)}
-          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-sm"
         >
           <option value="public">Public</option>
           <option value="friends">Friends Only</option>
@@ -207,10 +207,10 @@ export default function Settings() {
           { key: 'activitySharing', label: 'Activity Sharing', description: 'Allow friends to see your workout activities' },
           { key: 'locationSharing', label: 'Location Sharing', description: 'Share your workout locations with friends' }
         ].map((item) => (
-          <div key={item.key} className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+          <div key={item.key} className="flex items-center justify-between p-3 lg:p-4 bg-gray-50 rounded-lg">
             <div>
-              <div className="font-medium text-gray-900">{item.label}</div>
-              <div className="text-sm text-gray-500">{item.description}</div>
+              <div className="font-medium text-gray-900 text-sm lg:text-base">{item.label}</div>
+              <div className="text-xs lg:text-sm text-gray-500">{item.description}</div>
             </div>
             <label className="relative inline-flex items-center cursor-pointer">
               <input
@@ -219,7 +219,7 @@ export default function Settings() {
                 onChange={(e) => updateSetting(item.key, e.target.checked)}
                 className="sr-only peer"
               />
-              <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-purple-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-purple-600"></div>
+              <div className="w-10 h-5 lg:w-11 lg:h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-purple-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 lg:after:h-5 lg:after:w-5 after:transition-all peer-checked:bg-purple-600"></div>
             </label>
           </div>
         ))}
@@ -228,15 +228,15 @@ export default function Settings() {
   );
 
   const renderAppearanceTab = () => (
-    <div className="space-y-6">
+    <div className="space-y-4 lg:space-y-6">
       <div>
         <label className="block text-sm font-medium text-gray-700 mb-2">Theme</label>
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 lg:gap-4">
           {['light', 'dark', 'auto'].map((theme) => (
             <button
               key={theme}
               onClick={() => updateSetting('theme', theme)}
-              className={`p-4 border-2 rounded-lg text-center capitalize transition-colors ${
+              className={`p-3 lg:p-4 border-2 rounded-lg text-center capitalize transition-colors text-sm ${
                 settings.theme === theme
                   ? 'border-purple-500 bg-purple-50 text-purple-700'
                   : 'border-gray-200 hover:border-gray-300'
@@ -253,7 +253,7 @@ export default function Settings() {
         <select
           value={settings.language}
           onChange={(e) => updateSetting('language', e.target.value)}
-          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-sm"
         >
           <option value="en">English</option>
           <option value="es">Spanish</option>
@@ -264,12 +264,12 @@ export default function Settings() {
 
       <div>
         <label className="block text-sm font-medium text-gray-700 mb-2">Units</label>
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 lg:gap-4">
           {['metric', 'imperial'].map((unit) => (
             <button
               key={unit}
               onClick={() => updateSetting('units', unit)}
-              className={`p-4 border-2 rounded-lg text-center capitalize transition-colors ${
+              className={`p-3 lg:p-4 border-2 rounded-lg text-center capitalize transition-colors text-sm ${
                 settings.units === unit
                   ? 'border-purple-500 bg-purple-50 text-purple-700'
                   : 'border-gray-200 hover:border-gray-300'
@@ -284,15 +284,15 @@ export default function Settings() {
   );
 
   const renderGoalsTab = () => (
-    <div className="space-y-6">
-      <div className="grid grid-cols-2 gap-6">
+    <div className="space-y-4 lg:space-y-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6">
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-2">Daily Steps Goal</label>
           <input
             type="number"
             value={settings.dailySteps}
             onChange={(e) => updateSetting('dailySteps', parseInt(e.target.value))}
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-sm"
           />
         </div>
         <div>
@@ -301,7 +301,7 @@ export default function Settings() {
             type="number"
             value={settings.weeklyWorkouts}
             onChange={(e) => updateSetting('weeklyWorkouts', parseInt(e.target.value))}
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-sm"
           />
         </div>
         <div>
@@ -310,7 +310,7 @@ export default function Settings() {
             type="number"
             value={settings.dailyWater}
             onChange={(e) => updateSetting('dailyWater', parseInt(e.target.value))}
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-sm"
           />
         </div>
         <div>
@@ -319,7 +319,7 @@ export default function Settings() {
             type="number"
             value={settings.sleepHours}
             onChange={(e) => updateSetting('sleepHours', parseInt(e.target.value))}
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-sm"
           />
         </div>
       </div>
@@ -344,32 +344,57 @@ export default function Settings() {
   };
 
   return (
-    <div className="flex-1 p-8">
+    <div className="flex-1 p-4 sm:p-6 lg:p-8">
       {/* Header */}
-      <div className="flex items-center justify-between mb-8">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 lg:mb-8 space-y-4 sm:space-y-0">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900 mb-2">Settings</h1>
-          <p className="text-gray-600">Manage your account and app preferences</p>
+          <h1 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">Settings</h1>
+          <p className="text-sm sm:text-base text-gray-600">Manage your account and app preferences</p>
         </div>
         <button
           onClick={saveSettings}
-          className="flex items-center space-x-2 bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition-colors"
+          className="flex items-center justify-center space-x-2 bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition-colors text-sm w-full sm:w-auto"
         >
           <Save size={18} />
           <span>Save Changes</span>
         </button>
       </div>
 
-      <div className="grid grid-cols-4 gap-8">
+      <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 lg:gap-8">
         {/* Settings Navigation */}
-        <div className="space-y-2">
+        <div className="lg:space-y-2">
+          {/* Mobile Tabs */}
+          <div className="lg:hidden mb-6">
+            <div className="flex space-x-1 bg-gray-100 rounded-lg p-1 overflow-x-auto">
+              {tabs.map((tab) => {
+                const Icon = tab.icon;
+                return (
+                  <button
+                    key={tab.id}
+                    onClick={() => setActiveTab(tab.id)}
+                    className={`flex items-center space-x-2 px-3 py-2 rounded-md text-sm font-medium transition-colors whitespace-nowrap ${
+                      activeTab === tab.id
+                        ? 'bg-white text-purple-700 shadow-sm'
+                        : 'text-gray-600 hover:text-gray-900'
+                    }`}
+                  >
+                    <Icon size={16} />
+                    <span className="hidden sm:inline">{tab.label}</span>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+          
+          {/* Desktop Sidebar */}
+          <div className="hidden lg:block space-y-2">
           {tabs.map((tab) => {
             const Icon = tab.icon;
             return (
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-left transition-colors ${
+                className={`w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-left transition-colors text-sm lg:text-base ${
                   activeTab === tab.id
                     ? 'bg-purple-100 text-purple-700 border border-purple-200'
                     : 'text-gray-600 hover:bg-gray-100'
@@ -381,11 +406,12 @@ export default function Settings() {
             );
           })}
         </div>
+        </div>
 
         {/* Settings Content */}
-        <div className="col-span-3">
-          <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
-            <h2 className="text-xl font-semibold text-gray-900 mb-6">
+        <div className="lg:col-span-3">
+          <div className="bg-white rounded-xl lg:rounded-2xl p-4 sm:p-6 lg:p-8 shadow-sm border border-gray-100">
+            <h2 className="text-lg lg:text-xl font-semibold text-gray-900 mb-4 lg:mb-6">
               {tabs.find(tab => tab.id === activeTab)?.label}
             </h2>
             {renderTabContent()}

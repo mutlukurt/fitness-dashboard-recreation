@@ -74,27 +74,27 @@ export default function Reports() {
   };
 
   return (
-    <div className="flex-1 p-8">
+    <div className="flex-1 p-4 sm:p-6 lg:p-8">
       {/* Header */}
-      <div className="flex items-center justify-between mb-8">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 lg:mb-8 space-y-4 sm:space-y-0">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900 mb-2">Fitness Reports</h1>
-          <p className="text-gray-600">Track your progress and analyze your performance</p>
+          <h1 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">Fitness Reports</h1>
+          <p className="text-sm sm:text-base text-gray-600">Track your progress and analyze your performance</p>
         </div>
-        <div className="flex items-center space-x-4">
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center space-y-3 sm:space-y-0 sm:space-x-4 w-full sm:w-auto">
           <button
             onClick={exportReport}
-            className="flex items-center space-x-2 bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition-colors"
+            className="flex items-center justify-center space-x-2 bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition-colors text-sm"
           >
             <Download size={18} />
             <span>Export</span>
           </button>
-          <div className="flex items-center space-x-2 bg-gray-100 rounded-lg p-1">
+          <div className="flex items-center space-x-1 bg-gray-100 rounded-lg p-1 overflow-x-auto">
             {periods.map((period) => (
               <button
                 key={period.id}
                 onClick={() => setSelectedPeriod(period.id)}
-                className={`px-3 py-1 rounded-md text-sm font-medium transition-colors ${
+                className={`px-2 lg:px-3 py-1 rounded-md text-xs lg:text-sm font-medium transition-colors whitespace-nowrap ${
                   selectedPeriod === period.id
                     ? 'bg-white text-purple-600 shadow-sm'
                     : 'text-gray-600 hover:text-gray-900'
@@ -108,35 +108,35 @@ export default function Reports() {
       </div>
 
       {/* Summary Cards */}
-      <div className="grid grid-cols-4 gap-6 mb-8">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-6 mb-6 lg:mb-8">
         {summaryStats.map((stat, index) => (
-          <div key={index} className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
-            <div className="flex items-center justify-between mb-4">
-              <div className="text-2xl">{stat.icon}</div>
-              <div className={`flex items-center space-x-1 text-sm font-medium ${
+          <div key={index} className="bg-white rounded-xl lg:rounded-2xl p-4 lg:p-6 shadow-sm border border-gray-100">
+            <div className="flex items-center justify-between mb-3 lg:mb-4">
+              <div className="text-xl lg:text-2xl">{stat.icon}</div>
+              <div className={`flex items-center space-x-1 text-xs lg:text-sm font-medium ${
                 stat.trend === 'up' ? 'text-green-600' : 'text-red-600'
               }`}>
-                {stat.trend === 'up' ? <TrendingUp size={16} /> : <TrendingDown size={16} />}
+                {stat.trend === 'up' ? <TrendingUp size={14} className="lg:w-4 lg:h-4" /> : <TrendingDown size={14} className="lg:w-4 lg:h-4" />}
                 <span>{stat.change}</span>
               </div>
             </div>
-            <div className="text-2xl font-bold text-gray-900 mb-1">{stat.value}</div>
-            <div className="text-sm text-gray-500">{stat.label}</div>
+            <div className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900 mb-1">{stat.value}</div>
+            <div className="text-xs lg:text-sm text-gray-500">{stat.label}</div>
           </div>
         ))}
       </div>
 
       {/* Chart Section */}
-      <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 mb-8">
-        <div className="flex items-center justify-between mb-6">
-          <h2 className="text-xl font-semibold text-gray-900">Weekly Performance</h2>
-          <div className="flex items-center space-x-4">
+      <div className="bg-white rounded-xl lg:rounded-2xl p-4 lg:p-6 shadow-sm border border-gray-100 mb-6 lg:mb-8">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-4 lg:mb-6 space-y-3 sm:space-y-0">
+          <h2 className="text-lg sm:text-xl font-semibold text-gray-900">Weekly Performance</h2>
+          <div className="flex items-center space-x-2 lg:space-x-4">
             <div className="flex items-center space-x-2">
-              <Filter size={18} className="text-gray-400" />
+              <Filter size={16} className="text-gray-400 lg:w-[18px] lg:h-[18px]" />
               <select
                 value={selectedMetric}
                 onChange={(e) => setSelectedMetric(e.target.value)}
-                className="bg-gray-100 border-0 rounded-lg px-3 py-2 text-sm font-medium focus:ring-2 focus:ring-purple-500"
+                className="bg-gray-100 border-0 rounded-lg px-2 lg:px-3 py-1.5 lg:py-2 text-xs lg:text-sm font-medium focus:ring-2 focus:ring-purple-500"
               >
                 {metrics.map((metric) => (
                   <option key={metric.id} value={metric.id}>
@@ -149,7 +149,7 @@ export default function Reports() {
         </div>
 
         {/* Bar Chart */}
-        <div className="h-64 flex items-end justify-between space-x-4">
+        <div className="h-48 lg:h-64 flex items-end justify-between space-x-2 lg:space-x-4">
           {weeklyData.map((data, index) => {
             const value = data[selectedMetric as keyof typeof data] as number;
             const maxValue = getMaxValue(selectedMetric);
@@ -158,13 +158,13 @@ export default function Reports() {
             return (
               <div key={index} className="flex-1 flex flex-col items-center">
                 <div className="w-full flex flex-col items-center mb-2">
-                  <div className="text-xs text-gray-600 mb-1">{value.toLocaleString()}</div>
+                  <div className="text-xs text-gray-600 mb-1 hidden sm:block">{value.toLocaleString()}</div>
                   <div 
-                    className={`w-full bg-gradient-to-t ${getMetricColor(selectedMetric)} rounded-t-lg transition-all duration-500 hover:opacity-80 cursor-pointer`}
+                    className={`w-full bg-gradient-to-t ${getMetricColor(selectedMetric)} rounded-t-md lg:rounded-t-lg transition-all duration-500 hover:opacity-80 cursor-pointer`}
                     style={{ height: `${height}%`, minHeight: '20px' }}
                   ></div>
                 </div>
-                <div className="text-sm font-medium text-gray-700">{data.day}</div>
+                <div className="text-xs lg:text-sm font-medium text-gray-700">{data.day}</div>
               </div>
             );
           })}
@@ -172,11 +172,11 @@ export default function Reports() {
       </div>
 
       {/* Detailed Analytics */}
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6">
         {/* Goals Progress */}
-        <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
-          <h3 className="text-lg font-semibold text-gray-900 mb-6">Goals Progress</h3>
-          <div className="space-y-6">
+        <div className="bg-white rounded-xl lg:rounded-2xl p-4 lg:p-6 shadow-sm border border-gray-100">
+          <h3 className="text-base lg:text-lg font-semibold text-gray-900 mb-4 lg:mb-6">Goals Progress</h3>
+          <div className="space-y-4 lg:space-y-6">
             {[
               { goal: 'Daily Steps', current: 8547, target: 10000, unit: 'steps' },
               { goal: 'Weekly Workouts', current: 4, target: 5, unit: 'workouts' },
@@ -187,8 +187,8 @@ export default function Reports() {
               return (
                 <div key={index}>
                   <div className="flex justify-between items-center mb-2">
-                    <span className="font-medium text-gray-900">{item.goal}</span>
-                    <span className="text-sm text-gray-600">
+                    <span className="font-medium text-gray-900 text-sm lg:text-base">{item.goal}</span>
+                    <span className="text-xs lg:text-sm text-gray-600">
                       {item.current} / {item.target} {item.unit}
                     </span>
                   </div>
@@ -198,7 +198,7 @@ export default function Reports() {
                       style={{width: `${Math.min(percentage, 100)}%`}}
                     ></div>
                   </div>
-                  <div className="text-xs text-gray-500 mt-1">{percentage.toFixed(0)}% complete</div>
+                  <div className="text-xs text-gray-500 mt-1 lg:mt-1">{percentage.toFixed(0)}% complete</div>
                 </div>
               );
             })}
@@ -206,8 +206,8 @@ export default function Reports() {
         </div>
 
         {/* Activity Breakdown */}
-        <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
-          <h3 className="text-lg font-semibold text-gray-900 mb-6">Activity Breakdown</h3>
+        <div className="bg-white rounded-xl lg:rounded-2xl p-4 lg:p-6 shadow-sm border border-gray-100">
+          <h3 className="text-base lg:text-lg font-semibold text-gray-900 mb-4 lg:mb-6">Activity Breakdown</h3>
           <div className="space-y-4">
             {[
               { activity: 'Running', time: '2h 30m', percentage: 35, color: 'from-red-400 to-red-600' },
@@ -219,11 +219,11 @@ export default function Reports() {
               <div key={index} className="flex items-center justify-between">
                 <div className="flex items-center space-x-3">
                   <div className={`w-4 h-4 rounded-full bg-gradient-to-r ${item.color}`}></div>
-                  <span className="font-medium text-gray-900">{item.activity}</span>
+                  <span className="font-medium text-gray-900 text-sm lg:text-base">{item.activity}</span>
                 </div>
-                <div className="flex items-center space-x-4">
-                  <span className="text-sm text-gray-600">{item.time}</span>
-                  <span className="text-sm font-medium text-gray-900 w-8">{item.percentage}%</span>
+                <div className="flex items-center space-x-2 lg:space-x-4">
+                  <span className="text-xs lg:text-sm text-gray-600">{item.time}</span>
+                  <span className="text-xs lg:text-sm font-medium text-gray-900 w-6 lg:w-8">{item.percentage}%</span>
                 </div>
               </div>
             ))}
