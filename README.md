@@ -4,7 +4,17 @@
 
 A comprehensive, modern fitness tracking dashboard built with React, TypeScript, and Tailwind CSS. Track your workouts, monitor progress, manage your fitness calendar, and connect with friends in this beautifully designed application.
 
-![Fitness Dashboard Preview](https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80)
+## 📱 Screenshots
+
+### Desktop Version
+| Dashboard | Home Page |
+|-----------|-----------|
+| ![Desktop Dashboard](https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80) | ![Desktop Home](https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80) |
+
+### Mobile Version
+| Home | Dashboard | Reports | Calendar | Settings |
+|------|-----------|---------|----------|----------|
+| ![Mobile Home](https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80) | ![Mobile Dashboard](https://images.unsplash.com/photo-1434494878577-86c23bcb06b9?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80) | ![Mobile Reports](https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80) | ![Mobile Calendar](https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80) | ![Mobile Settings](https://images.unsplash.com/photo-1551698618-1dfe5d97d256?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80) |
 
 ## ✨ Features
 
